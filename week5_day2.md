@@ -61,3 +61,31 @@ JOIN 특징
 
 USING 조건절
 - 같은 이름을 가진 컬럼들 중 원하는 컬럼에 대하서만 선택적으로 등가 조인 가능, SQL Server에서는 지원X
+
+SELECT e.name, d.dept_name
+FROM employees e
+JOIN departments d
+USING (dept_id);
+
+| id | name   | dept_id | position       | hire_date   |
+|----|--------|---------|----------------|-------------|
+| 1  | Alice  | 1       | Manager        | 2021-11-15  |
+| 2  | Bob    | 2       | Engineer       | 2020-03-08  |
+| 3  | Carol  | 2       | HR Specialist  | 2021-07-12  |
+
+(+)
+
+| dept_id | dept_name    | location       | budget  |
+|---------|--------------|----------------|---------|
+| 1       | HR           | New York       | 300000  |
+| 2       | Engineering  | San Francisco  | 400000  |
+| 3       | Marketing    | Chicago        | 200000  |
+
+---
+
+| name   | dept_name    |
+|--------|--------------|
+| Alice  | HR           |
+| Bob    | Engineering  |
+| Carol  | Engineering  |
+
