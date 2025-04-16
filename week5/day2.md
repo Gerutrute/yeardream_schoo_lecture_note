@@ -129,5 +129,28 @@ NATURAL JOIN vs INNER JOIN
 | **주의사항**            | - 공통 칼럼이 많거나 중복될 경우, 어느 컬럼으로 조인되는지 혼동 가능  <br> - 특정 칼럼명이 중복일 때 `USING`을 통해 제거해야 함 (MySQL, Oracle 등 지원)  | - JOIN 조건이 누락되면 CROSS JOIN이 될 수 있음  <br> - 별칭(ALIAs) 등을 통해 컬럼 구분 가능 |
 | **지원 DBMS**           | MySQL, Oracle 등 일부 DBMS에서 지원                                                                          | 대부분 DBMS에서 사용 가능                                                                |
 
+CROSS JOIN
 
+| ID | NAME | PHONE |
+|----|------|-------|
+| 1  | kim  | 010   |
+| 2  | moon | 011   |
 
+(+)
+
+| TRANSPORT_ID | TYPE    |
+|--------------|---------|
+| 01A          | bus     |
+| 01B          | subway  |
+| 02A          | cab     |
+
+---
+
+| ID | NAME | PHONE | TRANSPORT_ID | TYPE    |
+|----|------|-------|--------------|---------|
+| 1  | kim  | 010   | 01A          | bus     |
+| 1  | kim  | 010   | 01B          | subway  |
+| 1  | kim  | 010   | 02A          | cab     |
+| 2  | moon | 011   | 01A          | bus     |
+| 2  | moon | 011   | 01B          | subway  |
+| 2  | moon | 011   | 02A          | cab     |
