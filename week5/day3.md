@@ -171,3 +171,21 @@ WHERE ALPHA.관리자 = BETA.사원번호;
 | "모든 조건을 다 만족해야 하나?"                      | 여러 값 → `ALL`                | 다중행        |
 | "그런 값이 존재하기만 하면 되지 않을까?"             | 존재 여부 → `EXISTS`           | 다중행        |
 
+## 스칼라 서브쿼리
+
+![image](https://github.com/user-attachments/assets/b6312899-332b-44dd-99ce-f59ff00b6446)
+
+![image](https://github.com/user-attachments/assets/dad484a5-bb40-418d-aa3d-34ed87d3341a)
+
+## SQL 뷰
+- 하나 이상의 쿼리구조 즉, 특정쿼리로 구성 된 가상의 쿼리로 실제 결과데이터는 없음. 동일한 DBMS라면 아무곳에서나 호출하여 사용 가능
+- 뷰는 다른 테이블에서 파생된 데이터, 논리적으로만 존재하며 뷰를 사용한 질의
+  ![image](https://github.com/user-attachments/assets/c707daca-72ed-44e8-827e-e0b0915f6daa)
+
+  ![image](https://github.com/user-attachments/assets/fa873e7c-1712-4908-baab-6824bc390050)
+
+  ![image](https://github.com/user-attachments/assets/ee19e048-42a5-4dfd-8f61-c226e855e302)
+
+  ![image](https://github.com/user-attachments/assets/e35f8d8b-b92f-4bd7-9bff-0a8b7eeb5087)
+
+  ![image](https://github.com/user-attachments/assets/855653fd-24e1-4239-8d29-df329cf255c4)
