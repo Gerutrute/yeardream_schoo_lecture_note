@@ -126,3 +126,6 @@ WHERE ALPHA.관리자 = BETA.사원번호;
 ```
 
 ![img](https://cdn-api.elice.io/api-attachment/attachment/fe309974fcac4bb88ddda2cf918a272f/image.png)
+
+
+![image](https://github.com/user-attachments/assets/3f3204aa-1ec7-4e4c-ac13-db687ae79ca8)
