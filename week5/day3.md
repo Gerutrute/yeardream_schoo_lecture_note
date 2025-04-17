@@ -128,4 +128,10 @@ WHERE ALPHA.관리자 = BETA.사원번호;
 ![img](https://cdn-api.elice.io/api-attachment/attachment/fe309974fcac4bb88ddda2cf918a272f/image.png)
 
 
-![image](https://github.com/user-attachments/assets/3f3204aa-1ec7-4e4c-ac13-db687ae79ca8)
+## 서브쿼리 종류와 특징
+- 연관 서브쿼리 : 메인 쿼리의 컬럼을 사용하면 연관 서브쿼리
+- 비연관 서브쿼리 :테이블의 데이터만 사용하고, 메인 쿼리 컬럼 사용안함
+
+![image](https://github.com/user-attachments/assets/c9f16243-14de-49c3-b63e-6011c6f7692a)
+
+
