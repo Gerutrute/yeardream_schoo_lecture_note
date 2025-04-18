@@ -363,5 +363,27 @@ RANK() OVER([PARTITION BY 컬럼][ORDER BY 컬럼 ][WINDOWING 절])
 
 ![image](https://github.com/user-attachments/assets/d632a4cd-4307-4ed8-b81f-4718894ab543)
 
+**일반 집계 함수**
+- 일반 집계함수(SUM, AVG, MAX, MIN, ...)를 GROUP BY 없이 사용 가능(OVER(Partition) 기능 때문에)
+
 ![image](https://github.com/user-attachments/assets/3ad12664-2109-498e-93d5-a9d9ea7cd5a0)
 
+## 🔍 `FIRST_VALUE`, `LAST_VALUE`
+
+**각 부서에서 급여를 가장 많이 받은 사람의 급여와, 가장 적게 받은 사람의 급여를 함께 출력**
+
+```sql
+SELECT
+    ID, DEPARTMENT_ID, NAME, SALARY,
+
+    FIRST_VALUE(SALARY) OVER(PARTITION BY DEPARTMENT_ID ORDER BY SALARY
+        ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS DEPARTMENT_MIN_SALARY,
+
+    LAST_VALUE(SALARY) OVER(PARTITION BY DEPARTMENT_ID ORDER BY SALARY
+        ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS DEPARTMENT_MAX_SALARY
+
+FROM EMPLOYEE
+ORDER BY ID;
+```
+
+![image](https://github.com/user-attachments/assets/e3e08402-35ff-4369-bd6e-88de84f5ff82)
