@@ -387,3 +387,27 @@ ORDER BY ID;
 ```
 
 ![image](https://github.com/user-attachments/assets/e3e08402-35ff-4369-bd6e-88de84f5ff82)
+
+
+** 그룹 내 비율 함수**
+
+| 함수             | 설명                                                        |
+|------------------|-------------------------------------------------------------|
+| `RATIO_TO_REPORT` | 파티션 내 전체 SUM에 대한 비율을 구한다                    |
+| `PERCENT_RANK`    | 파티션 내 순위를 백분율로 구한다                            |
+| `CUME_DIST`       | 파티션 내 현재 행보다 작거나 같은 건들의 수 누적 백분율로 구한다 |
+| `NTILE`           | 파티션 내 행들을 N등분한 결과를 구한다                     |
+
+*`RATIO_TO_REPORT`*
+
+![image](https://github.com/user-attachments/assets/b40d2b9a-f05b-4f8b-b889-1259c980a1af)
+
+*`PERCENT_RANK`*
+*`CUME_DIST`*
+
+![image](https://github.com/user-attachments/assets/72e9f77f-afe1-4299-b974-7b84da559175)
+
+*`NTILE`*
+
+![image](https://github.com/user-attachments/assets/5b863f0f-a96f-46b5-bda4-bbab76359734)
+
