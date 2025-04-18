@@ -223,23 +223,27 @@ OVER ([PARTITION BY 칼럼] [ORDER BY 절] [WINDOWING 절]) FROM 테이블 명;
 
 # RANK() 함수 사용 예제
 
-## 1. PARTITION 없이
-
-```sql
-SELECT
-  name,
-  department,
-  salary,
-  RANK() OVER (
-    ORDER BY salary DESC
-  ) AS rank
-FROM employees;
-전체 테이블 기준으로 연봉 순위를 매깁니다.
-
-2. PARTITION 사용
-sql
+ChatGPT의 말:
+markdown
 복사
 편집
+# RANK() 함수 사용 예제
+
+1. **PARTITION 없이**
+
+   ```
+   SELECT
+     name,
+     department,
+     salary,
+     RANK() OVER (ORDER BY salary DESC) AS rank
+   FROM employees;
+   ```
+전체 테이블 기준으로 연봉 순위를 매깁니다.
+
+2. **PARTITION 사용**
+
+```
 SELECT
   name,
   department,
@@ -249,4 +253,5 @@ SELECT
     ORDER BY salary DESC
   ) AS dept_rank
 FROM employees;
+```
 부서(department)별로 따로 순위를 매깁니다.
