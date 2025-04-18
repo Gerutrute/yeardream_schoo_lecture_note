@@ -215,19 +215,45 @@ OVER ([PARTITION BY 칼럼] [ORDER BY 절] [WINDOWING 절]) FROM 테이블 명;
 | UNBOUNDED FOLLOWING | 윈도우의 마지막 위치가 마지막 행       |
 | CURRENT ROW         | 윈도우의 시작 위치가 현재 행           |
 
+| 구문                                                   | 의미                           |
+|--------------------------------------------------------|--------------------------------|
+| ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW       | 맨 앞에서부터 현재 행까지 포함 |
+| ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING       | 현재 행부터 끝까지 포함        |
+| ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING               | 현재 행 앞뒤 하나씩 포함       |
+
+
+### ✅ 그룹 내 행 순서 함수
+
+| 함수          | 설명                         |
+| ------------- | ---------------------------- |
+| FIRST_VALUE   | 가장 먼저 나온 값을 구한다   |
+| LAST_VALUE    | 가장 나중에 나온 값을 구한다 |
+| LAG           | 이전 X번째 행을 가져온다     |
+| LEAD          | 이후 X번째 행을 가져온다     |
+
 ![image](https://github.com/user-attachments/assets/f898f586-1c6d-48cd-856e-72ff1217c0a4)
 윈도우 함수 -> 순위 함수
 
 ![image](https://github.com/user-attachments/assets/d104a9e6-e53c-454c-b1f6-0d6f5eed1ce7)
 윈도우 함수 -> 집계 함수
 
-# RANK() 함수 사용 예제
+구현 예시
+```
+SELECT
+    ID, DEPARTMENT_ID, NAME, SALARY,
+    FIRST_VALUE(SALARY)
+        OVER(PARTITION BY DEPARTMENT_ID ORDER BY SALARY
+             ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)
+        AS DEPARTMENT_MIN_SALARY,
+    LAST_VALUE(SALARY)
+        OVER(PARTITION BY DEPARTMENT_ID ORDER BY SALARY
+             ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)
+        AS DEPARTMENT_MAX_SALARY
+FROM EMPLOYEE
+ORDER BY ID;
+```
 
-ChatGPT의 말:
-markdown
-복사
-편집
-# RANK() 함수 사용 예제
+## RANK() 함수 사용 예제
 
 1. **PARTITION 없이**
 
@@ -255,3 +281,66 @@ SELECT
 FROM employees;
 ```
 부서(department)별로 따로 순위를 매깁니다.
+
+윈도우 함수_ 그룹 내 함수 사용 예제
+## 🔺 기본 테이블 예시 (`ORDER BY salary ASC`)
+
+| NAME | SALARY |
+|------|--------|
+| Kim  | 3000   |
+| Lee  | 5000   |
+| Park | 7000   |
+| Jung | 9000   |
+
+---
+
+
+## 🟦 1. `ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW`
+<details>
+<summary>접기/펼치기</summary>
+<div markdown="1">
+> "맨 앞부터 현재 행까지 포함"
+
+### 각 행 기준 포함 범위:
+
+| 현재 행 | 포함되는 행 (범위)     | 합계 (SUM 예시) |
+|--------|------------------------|----------------|
+| Kim    | Kim                   | 3000           |
+| Lee    | Kim, Lee              | 8000           |
+| Park   | Kim, Lee, Park        | 15000          |
+| Jung   | Kim, Lee, Park, Jung  | 24000          |
+
+✅ 옆에서부터 누적되는 누적합
+</div>
+</details>
+
+## 🟦 2. `ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING`
+
+> "현재 행부터 마지막까지 포함"
+
+### 각 행 기준 포함 범위:
+
+| 현재 행 | 포함되는 행 (범위)     | 합계 (SUM 예시) |
+|--------|------------------------|----------------|
+| Kim    | Kim, Lee, Park, Jung  | 24000          |
+| Lee    | Lee, Park, Jung        | 21000          |
+| Park   | Park, Jung             | 16000          |
+| Jung   | Jung                   | 9000           |
+
+✅ 뒤에서부터 줄어드는 누적합
+
+## 🟦 3. `ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING`
+
+> "현재 행의 앞 한 줄 + 현재 + 뒤 한 줄 포함"
+
+### 👇 각 행 기준 포함 범위:
+
+| 현재 행 | 포함되는 행 (범위)     | 합계 (SUM 예시) |
+|--------|------------------------|----------------|
+| Kim    | Kim, Lee               | 8000           |
+| Lee    | Kim, Lee, Park         | 15000          |
+| Park   | Lee, Park, Jung        | 21000          |
+| Jung   | Park, Jung             | 16000          |
+
+✅ 이웃한 행까지 포함한 슬라이딩 윈도우 계산
+
