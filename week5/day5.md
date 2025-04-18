@@ -296,11 +296,11 @@ FROM employees;
 
 
 ## 🟦 1. `ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW`
+
+> "맨 앞부터 현재 행까지 포함"
 <details>
 <summary>접기/펼치기</summary>
 <div markdown="1">
-> "맨 앞부터 현재 행까지 포함"
-
 ### 각 행 기준 포함 범위:
 
 | 현재 행 | 포함되는 행 (범위)     | 합계 (SUM 예시) |
@@ -317,7 +317,9 @@ FROM employees;
 ## 🟦 2. `ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING`
 
 > "현재 행부터 마지막까지 포함"
-
+<details>
+<summary>접기/펼치기</summary>
+<div markdown="1">
 ### 각 행 기준 포함 범위:
 
 | 현재 행 | 포함되는 행 (범위)     | 합계 (SUM 예시) |
@@ -328,11 +330,14 @@ FROM employees;
 | Jung   | Jung                   | 9000           |
 
 ✅ 뒤에서부터 줄어드는 누적합
-
+</div>
+</details>
 ## 🟦 3. `ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING`
 
 > "현재 행의 앞 한 줄 + 현재 + 뒤 한 줄 포함"
-
+<details>
+<summary>접기/펼치기</summary>
+<div markdown="1">
 ### 👇 각 행 기준 포함 범위:
 
 | 현재 행 | 포함되는 행 (범위)     | 합계 (SUM 예시) |
@@ -343,4 +348,19 @@ FROM employees;
 | Jung   | Park, Jung             | 16000          |
 
 ✅ 이웃한 행까지 포함한 슬라이딩 윈도우 계산
+
+</div>
+</details>
+
+**순위 함수**
+
+RANK() OVER([PARTITION BY 컬럼][ORDER BY 컬럼 ][WINDOWING 절])
+| 함수         | 설명                                                                 |
+|--------------|----------------------------------------------------------------------|
+| `RANK`       | 동일한 값에는 동일한 순위를 부여                                     |
+| `DENSE_RANK` | `RANK`와 같이 같은 값에는 같은 순위를 부여하나 한 건으로 취급         |
+| `ROW_NUMBER` | 동일한 값이라도 고유한 순위를 부여                                   |
+
+![image](https://github.com/user-attachments/assets/d632a4cd-4307-4ed8-b81f-4718894ab543)
+
 
