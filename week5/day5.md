@@ -411,3 +411,77 @@ ORDER BY ID;
 
 ![image](https://github.com/user-attachments/assets/5b863f0f-a96f-46b5-bda4-bbab76359734)
 
+##ROLL UP
+- 그룹의 평균치를 나타내는 것
+![image](https://github.com/user-attachments/assets/d4521d3c-e098-4c76-bab7-1a493d393976)
+
+| 항목                   | WITH ROLLUP (MySQL 확장 문법) | ROLLUP(...) (SQL 표준 문법)        |
+|------------------------|-------------------------------|------------------------------------|
+| 문법 스타일            | MySQL 확장 문법               | SQL 표준 문법                     |
+| 괄호 사용              | 없음 (쉼표로 집합 나열)       | 있음 (괄호로 집합 감쌈)           |
+| MariaDB 지원 여부     | ○ (전 버전에서 가능)          | ○ (10.2 이상)                     |
+| GROUPING SETS와 호환  | ✕                              | ○                                 |
+| 명확성 및 유연성       | 중간                           | 높음                              |
+| GROUPING 함수 지원 여부 | ✕                              | ✕ (MariaDB 자체가 지원 안 함)     |
+| 결과 차이              | 있음 (동일한 ROLLUP 결과 생성) | 없음                              |
+
+![image](https://github.com/user-attachments/assets/32ef9a1c-e8cb-49bd-8da3-e06414993ba3)
+
+![image](https://github.com/user-attachments/assets/cc74bf5e-e51a-4ed2-9e8b-931e27e4fee9)
+
+![image](https://github.com/user-attachments/assets/e104ea02-4a60-4400-bdb9-f93cb29746d0)
+
+![image](https://github.com/user-attachments/assets/96cda673-5f1f-436d-86a1-607887d19199)
+
+
+## CUBE
+- ROLL UP 함수에서 제공하는 결과를 포함하여, CUBE 함수에서 그룹화 하는 컬럽에 대해 결합 가능한 모든 경우의 수에
+다차원 집계를 생성함.
+
+![image](https://github.com/user-attachments/assets/e825c2c4-d454-4929-a088-78f4e40a845a)
+
+![image](https://github.com/user-attachments/assets/03edd86b-1d54-438e-98f8-4bbc32292ed7)
+
+## ROLL UP과 CUBE 구분 설명예제
+
+![image](https://github.com/user-attachments/assets/44551fc7-451f-4982-82ea-8c667690e974)
+
+| 항목            | ROLLUP                              | CUBE                                  |
+|-----------------|--------------------------------------|----------------------------------------|
+| 조합 수         | 누적 조합 (N + 1개)                  | 모든 조합 (2ⁿ개)                       |
+| 예: 2개 열      | (A, B), (A), ()                      | (A, B), (A), (B), ()                   |
+| 사용 목적       | 계층 보고서 (예: 년 → 월 → 일)       | OLAP, 피벗 테이블 등 다차원 분석      |
+| 순서 중요       | O                                    | X                                      |
+| MariaDB 지원    | O (WITH ROLLUP 또는 ROLLUP())         | ✕ (직접 지원 X → GROUPING SETS로 대체 가능) |
+
+## Online Analytical Processing의 대표 기능
+
+| 기능명       | 설명                                                    | SQL 대응 기능                    |
+|--------------|---------------------------------------------------------|----------------------------------|
+| Slice        | 하나의 축(열)에 대해 값 하나만 선택해서 잘라보기         | `WHERE` 또는 필터                |
+| Dice         | 두 개 이상의 축의 값 범위를 지정해 잘라보기              | `WHERE AND` 조건                |
+| Roll-up      | 상위 수준으로 요약하기 (예: 일 → 월 → 년)              | `GROUP BY + ROLLUP`             |
+| Drill-down   | 하위 수준으로 세부 정보 보기 (예: 월 → 일)             | `GROUP BY` 더 세부로            |
+| Pivot        | 행과 열을 바꾸며 보는 형태 (예: Excel 피벗테이블)       | `CUBE`, `GROUPING SETS` 등      |
+
+| 년도 | 지역 | 제품  | 매출 |
+|------|------|-------|------|
+| 2024 | 서울 | A상품 | 1000 |
+| 2024 | 부산 | B상품 |  800 |
+
+---
+
+이 데이터를 OLAP 분석으로 이렇게 볼 수 있어요:
+
+- ✅ **연도별 매출 합계** (`ROLLUP`)
+- ✅ **연도 + 지역별 매출** (`GROUP BY`)
+- ✅ **지역 + 제품별 매출 요약** (`GROUPING SETS`)
+- ✅ **전체 평균 매출** (`CUBE 결과 중 (NULL, NULL)`)
+
+## GROUPING SETS
+- 명시된 컬럼에 대해 개별 통계를 생성
+- 각 컬럼에 대해 GROUP BY로 생성한 통계를 모두 UNION ALL한 결과와 동일함
+![image](https://github.com/user-attachments/assets/55eb9258-12e1-4bf8-9b6c-b1508e41dfdb)
+
+![image](https://github.com/user-attachments/assets/91080a41-5b9f-41d4-85d6-4db07650fcee)
+
