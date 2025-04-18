@@ -363,4 +363,5 @@ RANK() OVER([PARTITION BY 컬럼][ORDER BY 컬럼 ][WINDOWING 절])
 
 ![image](https://github.com/user-attachments/assets/d632a4cd-4307-4ed8-b81f-4718894ab543)
 
+![image](https://github.com/user-attachments/assets/3ad12664-2109-498e-93d5-a9d9ea7cd5a0)
 
