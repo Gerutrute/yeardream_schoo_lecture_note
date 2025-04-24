@@ -74,6 +74,11 @@
 ## 재귀함수를 사용하는 이유
 - 변수의 사용을 줄여 프로그램을 더 간결하고 이해하기 쉽게 만들 수 있음.
 
+![image](https://github.com/user-attachments/assets/3ef1ddcf-7bd3-4f43-b9c9-295a9dddf053)
+
+![image](https://github.com/user-attachments/assets/dcf66f03-4ef4-4830-814e-5752f627dee2)
+
+
 # 정렬
 
 ![image](https://github.com/user-attachments/assets/bd86cc89-05eb-4868-ae39-eabf0c5f65bc)
