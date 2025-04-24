@@ -147,6 +147,8 @@ ex) 이진 트리, 힙
   - 힙의 크기가 1이 되면, 전체 배열이 정렬된 상태가 됨
   https://m.blog.naver.com/ndb796/221228342808
 
+![image](https://github.com/user-attachments/assets/5760378b-cf31-463e-811a-fe214a34ee29)
+
 # 투 포인터
 
 - **정의**  
@@ -171,6 +173,8 @@ ex) 이진 트리, 힙
    s         e
    ↓         ↓
   [10, 20, 30, 40]
+
+
 
 ![image](https://github.com/user-attachments/assets/5b02c7c5-7744-4e89-8ac6-0f99e57f43b1)
 
