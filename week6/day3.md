@@ -174,7 +174,7 @@ ex) 이진 트리, 힙
    ↓         ↓
   [10, 20, 30, 40]
 
-
+![image](https://github.com/user-attachments/assets/04f07b72-5faa-4db8-bfe4-d5f1d6421f36)
 
 ![image](https://github.com/user-attachments/assets/5b02c7c5-7744-4e89-8ac6-0f99e57f43b1)
 
@@ -197,6 +197,8 @@ ex) 이진 트리, 힙
   일반적으로 O(N)
 
 - **동작 예시**
+
+※ 윈도우 자료형의 경우 tuple로 저장하는 것이 팁
 
   ```text
   배열: [a, b, c, d, e, f, g]
