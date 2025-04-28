@@ -19,15 +19,19 @@
 
 ## 소프트웨어 공학의 분류
 - 생명주기
+  
   ![image](https://github.com/user-attachments/assets/36dfd3cb-6b2e-4243-864f-1e3469ba4926)
 
 - 프로세스
+  
   ![image](https://github.com/user-attachments/assets/b17e3848-1bd0-4cb3-91c5-c40222967383)
 
 - 품질관리 : 개발 과정에서 품질을 유지하고 향상시키기 위한 관리 기법을 연구하는 것
+  
   ![image](https://github.com/user-attachments/assets/d50403bb-cfcb-4b41-b811-3274dc89d572)
 
 - 유지보수 : 개발된 소프트웨어를 사용하고 보수하는 과정
+  
   ![image](https://github.com/user-attachments/assets/3e520744-d6ea-42b7-b0c2-4dc16c73abea)
 
 
