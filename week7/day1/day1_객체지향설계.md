@@ -23,10 +23,14 @@
   ![image](https://github.com/user-attachments/assets/bf6b151d-e6b1-4885-a450-500a399a8dbf)
 
 ### 추상화
+- 구현 세부사항은 숨기고 사용자에게는 기능만 보여주는 과정
 
   ![image](https://github.com/user-attachments/assets/80e42519-f945-4206-b37e-cf3256ce7ac5)
 
+  추상화 예시 : https://colab.research.google.com/drive/1rga9xAaSU70VtjY3P3g4Sq5-ZY2OIby9
+
 ### 캡슐화
+- 코드와 데이터를 하나의 단위(클래스)로 묶는 과정
 
   ![image](https://github.com/user-attachments/assets/16e33e6b-2914-414a-8929-8579b1049810)
 
