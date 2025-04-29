@@ -91,3 +91,62 @@
   ![image](https://github.com/user-attachments/assets/df647df8-0d95-432d-a5bc-2a53edee48de)
 
 # 객체지향 개발 방법론
+- 객체지향 개발을 체계적으로 수행하기 위한 절차적 접근
+
+  ![image](https://github.com/user-attachments/assets/fdfab22f-4807-4e85-bf49-12766b6b9af2)
+
+## BOOCH 방법론
+- 다양한 다이어그램을 통해 시스템의 구조와 동작을 시각화하는 방법론
+
+  ![image](https://github.com/user-attachments/assets/8c0c9d64-c12d-42ca-8c65-06e5752895c7)
+
+## OOSE
+- Use Case 개념을 처음 도입한 방법론
+
+  ![image](https://github.com/user-attachments/assets/5cda8c48-7c3e-439a-96b6-2674a2154e99)
+
+## OMT
+- 개발 과정을 세 가지 모델로 나누어 체계적으로 접근
+
+  ![image](https://github.com/user-attachments/assets/311f75e8-0751-46a1-8fce-9fe78224fcb9)
+
+  ![image](https://github.com/user-attachments/assets/a4235fd2-95e7-4a1a-aeae-558ea4ba451f)
+
+  ![image](https://github.com/user-attachments/assets/2e8ad073-da5c-4c21-8a4f-088837a8dc14)
+
+  ![image](https://github.com/user-attachments/assets/4eabaf6d-9c42-4a13-86cf-97a8e29b3187)
+
+## Coad & Yourdon 방법론
+- E-R 다이어그램으로 객체의 행위를 모델링하는데 초점을 둔 방법
+
+  ![image](https://github.com/user-attachments/assets/b837512c-cc5d-466e-8145-5b7167f5346d)
+
+## UML의 정의
+- 소프트웨어 시스템을 시작적으로 모델링(설계)하기 위한 표준화된 언어
+
+  ![image](https://github.com/user-attachments/assets/ba86d6e2-3042-42f0-a91a-ad4547e5da5c)
+
+## UML의 구성요소
+
+  ![image](https://github.com/user-attachments/assets/74e4edec-6e60-4099-a58e-008b5fc01b42)
+
+### UML의 구성요소 - 사물
+- 모델 안에서 존재하거나 다루어지는 요소들
+
+  ![image](https://github.com/user-attachments/assets/91717add-7d9e-4fcb-bb02-55141b59953f)
+
+### UML의 구성요소 - 관계
+- 사물 간의 연결관계를 추상화하여 표현한 것
+
+  ![image](https://github.com/user-attachments/assets/230e0964-6806-4e35-906c-2473bdc7e180)
+
+### UML의 구성요소 - 다이어그램
+- 사물들 간의 관계를 도형으로 보여준 것
+
+  ![image](https://github.com/user-attachments/assets/928de746-3baf-440a-bd05-e3ca8a36a892)
+
+## UML을 이용한 모델링
+- 소프트웨어를 그림으로 설계하는 일
+
+  ![image](https://github.com/user-attachments/assets/b5a04a54-e483-4f74-a95c-c08621796251)
+
